@@ -1,0 +1,48 @@
+module LeoHui {
+    class UpdateFunction {
+        public constructor() {
+            this.update_TestItem();
+            this.update_Hello();
+            this.update_GameController();
+        }
+
+        //更新TestItem类中的方法
+        private update_TestItem() {
+            TestItem.prototype.onLoad = function() {
+                cc.log("update TestItem onLoad");
+                this.descLabel.string = "热更方法成功";
+            }
+
+            TestItem.prototype.itemOnClick = function() {
+                cc.log(this.descLabel.string);
+            }
+        }
+
+        //更新Hello类中的方法
+        private update_Hello() {
+            Hello.prototype.onLoad = function() {
+                cc.log("update Hello onLoad");
+                this.descLabel.string = "你好，LeoHui";
+            }
+        }
+
+        //更新GameController类中的方法
+        private update_GameController() {
+            GameController.prototype.init = function() {
+                cc.log("init init init");
+                for(let i=0; i<10; ++i) {
+                    let itemNode = cc.instantiate(this.itemPrefab);
+                    itemNode.setParent(this.itemContainer);
+                    let itemScript = itemNode.getComponent(TestItem);
+                    itemScript.init(i);
+                }
+            }
+
+            //静态方法，不需要使用prototype
+            cc.log(GameController.test);
+            GameController.test = function() {
+                cc.log("GameController.test");
+            }
+        }
+    }
+}
