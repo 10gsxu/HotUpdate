@@ -4618,3 +4618,4 @@ var qs;
     qs.Utils = Utils;
 })(qs || (qs = {}));
 //# sourceMappingURL=qyscript.js.map
+window.qs = qs;
