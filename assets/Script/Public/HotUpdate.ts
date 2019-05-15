@@ -75,7 +75,7 @@ export default class HotUpdate {
 
     private loadRemoteScript() {
         cc.log("loadRemoteScript");
-        let url = "https://xiaochu.gyatechnology.com:3993/share/UpdateFunction.txt";
+        let url = "https://xiaochu.gyatechnology.com:3993/hotscript/UpdateFunction.txt";
         /*
         cc.loader.load({url:url, type:'txt'}, function (error:Error, text:any) {
             if (error) {
